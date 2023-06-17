@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="sketch.js"></script>
+    <link rel="stylesheet" href="./forwiki.css" />
+  </head>
+
+  <body>
+    <h1>Wikipediaの興味のありそうなページを教えてくれるツール</h1>
+    <p>
+      興味のあるWikipediaのページ名をいくつか入力してください。<br />
+      ページの中に、共通のページへのリンクがあった場合、あなたが興味のありそうなページとしてお知らせします！
+    </p>
+    <p>単語：<input id="input" value="" /></p>
+    <p>入力が終わったらエンターを押してね！</p>
+
+    <h2>入力した単語</h2>
+    <div class="words"></div>
+    <br />
+    <button id="clear">クリア</button>
+
+    <h2>あなたにおすすめのワード</h2>
+    <div id="suggest">
+      <div class="flex-item">
+        <div id="firstSuggest">
+          <h3>おすすめ度No.1</h3>
+          <ul id="firstWords"></ul>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div id="secondSuggest">
+          <h3>おすすめ度No.2</h3>
+          <ul id="secondWords"></ul>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div id="thirdSuggest">
+          <h3>おすすめ度No.3</h3>
+          <ul id="thirdWords"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $("#clear").on("click", function () {
+        console.log("クリアworking");
+        localStorage.clear();
+
+        $(".words").empty();
+        $("#input").val("");
+        $("#firstWords").empty();
+        $("#secondWords").empty();
+        $("#thirdWords").empty();
+      });
+    </script>
+  </body>
+</html>
